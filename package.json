@@ -1,6 +1,27 @@
 {
-  "dependencies": {
-    "express": "^4.18.1",
-    "nodemon": "^2.0.19"
-  }
+    "dependencies": {
+        "express": "^4.18.1",
+        "nodemon": "^2.0.19"
+    },
+    "scripts": {
+        "start": "node server.js"
+    },
+    "name": "grampower",
+    "version": "1.0.0",
+    "description": "user can list details about stores",
+    "main": "server.js",
+    "devDependencies": {},
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/ram2025/Stores.git"
+    },
+    "keywords": [
+        "hacker"
+    ],
+    "author": "ramprasad shinde",
+    "license": "ISC",
+    "bugs": {
+        "url": "https://github.com/ram2025/Stores/issues"
+    },
+    "homepage": "https://github.com/ram2025/Stores#readme"
 }
