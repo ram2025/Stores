@@ -49,9 +49,10 @@ app.get('/addshop', (req, res) => {
 app.post('/upload', multipleUpload, async(req, res) => {
     let stores = [];
     if (req.files) {
+        let dd = req.files.file1[0].filename.split(".");
         const add = new DataUpload({
             shopname: req.body.shopname,
-            shopimg: req.files.file1[0].filename,
+            shopimg: dd[0],
             about: req.body.about,
         });
         add.save();
