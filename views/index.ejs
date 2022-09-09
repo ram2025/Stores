@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MyLocalStores</title>
+    <style>
+        li {
+            display: inline;
+            margin: 20px;
+        }
+        
+        nav {
+            background-color: aqua;
+            padding: 5px;
+        }
+    </style>
+</head>
+
+<body>
+    <nav>
+        <ul>
+            <li id="logo">
+                <a href="/">MyLocalStores</a>
+            </li>
+            <li>
+                <a href="/addshop">AddShop</a>
+            </li>
+        </ul>
+    </nav>
+    <div class="stores">
+        <% stores.forEach(function(store) { %>
+            <a href="/shop/:<%= store.shopimg %>">
+                <div class="store">
+                    <h2>
+                        <%= store.shopname %>
+                    </h2>
+                    <img src="./uploads/<%= store.shopimg %>" alt="shop">
+                    <p class="about">
+                        <%= store.about %>
+                    </p>
+                </div>
+            </a>
+            <% }); %>
+    </div>
+</body>
+
+</html>
