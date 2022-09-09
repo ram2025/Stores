@@ -66,4 +66,5 @@ app.get('/shop/:name', async(req, res) => {
     res.render('./shop.ejs', { store: shop });
 });
 
-app.listen(4000);
+const port = process.env.PORT || 4000;
+app.listen(port);
