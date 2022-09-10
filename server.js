@@ -40,7 +40,7 @@ const storage = multer.diskStorage({
 });
 
 const upload = multer({ storage: storage });
-const multipleUpload = upload.fields([{ name: "file1" }, { name: "file2", maxCount: 3 }]);
+const multipleUpload = upload.fields([{ name: "file1" }, { name: "file2", maxCount: 10 }]);
 app.get('/', async(req, res) => {
     const stores = await DataUpload.find({});
     res.render('./index.ejs', { stores: stores });
