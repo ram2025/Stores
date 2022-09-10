@@ -16,6 +16,8 @@ let uploadSchema = mongoose.Schema({
     shopname: String,
     shopimg: String,
     about: String,
+    location: String,
+    gallary: Array,
 });
 
 let DataUpload = mongoose.model("DataUpload", uploadSchema, "images");
@@ -47,19 +49,23 @@ app.get('/addshop', (req, res) => {
     res.render('./addshop.ejs', {});
 });
 app.post('/upload', multipleUpload, async(req, res) => {
-    let stores = [];
+    let images = [];
     if (req.files) {
-        let dd = req.files.file1[0].filename.split(".");
+        const ff = req.files.file2;
+        ff.forEach((el) => {
+            images.push(el.filename);
+        });
         const add = new DataUpload({
             shopname: req.body.shopname,
-            shopimg: dd[0],
+            shopimg: req.files.file1[0].filename,
             about: req.body.about,
+            location: req.body.location,
+            gallary: images,
         });
         add.save();
-        stores = await DataUpload.find({});
-    }
 
-    res.render('./index.ejs', { stores: stores });
+    }
+    res.redirect("/");
 });
 
 app.get('/shop/:name', async(req, res) => {
@@ -67,5 +73,5 @@ app.get('/shop/:name', async(req, res) => {
     res.render('./shop.ejs', { store: shop });
 });
 
-const port = process.env.PORT || 4000;
+const port = process.env.PORT || 4500;
 app.listen(port);

@@ -6,18 +6,112 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <style>
+        li {
+            display: inline;
+            margin: 20px;
+            background-color: white;
+            border: 1px solid black;
+            border-radius: 10px;
+            padding: 5px;
+            height: 20px;
+        }
+        
+        nav {
+            background-color: cornflowerblue;
+            padding: 5px;
+        }
+        
+        .store {
+            text-align: center;
+        }
+        
+        img {
+            width: 300px;
+            height: 200px;
+        }
+        
+        .img {
+            display: inline-block;
+        }
+        
+        p {
+            font-size: large;
+        }
+        
+        .back {
+            display: inline-block;
+            border-left: 1px solid black;
+            background-image: url("../uploads/<%= store.shopimg %>");
+            background-repeat: no-repeat;
+            background-size: 100% 100%;
+            width: 100vw;
+            height: 200px;
+        }
+        
+        .store {
+            border: 1px solid black;
+            border-collapse: collapse;
+        }
+        
+        .gallary {
+            border: 1px solid black;
+            border-collapse: collapse;
+        }
+        
+        .containt {
+            text-align: center;
+        }
+        
+        .all {
+            border: 1px solid black;
+            display: grid;
+            grid-template-columns: auto auto;
+        }
+    </style>
 </head>
 
 <body>
-    <h1>
-        <%= store.shopname %>
-    </h1>
-    <div>
-        <img src="../uploads/<%= store.shopimg %>.jpg" alt="shop">
+    <nav>
+        <ul>
+            <li id="logo">
+                <a href="/">MyLocalStores</a>
+            </li>
+            <li>
+                <a href="/addshop">AddShop</a>
+            </li>
+        </ul>
+    </nav>
+    <div class="store">
+        <div class="back">
+        </div>
+        <div class="all">
+            <div class="containt">
+                <h1>
+                    <%= store.shopname %>
+                </h1>
+                <hr>
+                <h2>About</h2>
+                <p>
+                    <%= store.about %>
+                </p>
+            </div>
+            <div class="containt">
+                <h2>Location</h2>
+                <h3>
+                    <%= store.location %>
+                </h3>
+            </div>
+        </div>
+        <div class="gallary">
+            <h2>Gallary</h2>
+            <% store.gallary.forEach(function(img) { %>
+                <div class="img">
+                    <img src="../uploads/<%= img %>" alt="shop">
+                </div>
+                <% }); %>
+        </div>
     </div>
-    <p>
-        <%= store.about %>
-    </p>
 </body>
 
 </html>
