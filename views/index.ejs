@@ -20,6 +20,8 @@
         nav {
             background-color: cornflowerblue;
             padding: 5px;
+            border: 1px solid black;
+            border-radius: 10px;
         }
         
         .store {
@@ -35,32 +37,39 @@
             width: 200px;
             height: 200px;
         }
+        
+        .block {
+            background-color: antiquewhite;
+            height: 100vh;
+        }
     </style>
 </head>
 
 <body>
-    <nav>
-        <ul>
-            <li id="logo">
-                <a href="/">MyLocalStores</a>
-            </li>
-            <li>
-                <a href="/addshop">AddShop</a>
-            </li>
-        </ul>
-    </nav>
-    <div class="stores">
-        <% stores.forEach(function(store) { %>
-            <a href="/shop/:<%= store.shopimg %>">
-                <div class="store">
-                    <h2>
-                        <%= store.shopname %>
-                    </h2>
-                    <hr>
-                    <img src="./uploads/<%= store.shopimg %>" alt="shop">
-                </div>
-            </a>
-            <% }); %>
+    <div class="block">
+        <nav>
+            <ul>
+                <li id="logo">
+                    <a href="/">MyLocalStores</a>
+                </li>
+                <li>
+                    <a href="/addshop">AddShop</a>
+                </li>
+            </ul>
+        </nav>
+        <div class="stores">
+            <% stores.forEach(function(store) { %>
+                <a href="/shop/:<%= store.shopimg %>">
+                    <div class="store">
+                        <h2>
+                            <%= store.shopname %>
+                        </h2>
+                        <hr>
+                        <img src="./uploads/<%= store.shopimg %>" alt="shop">
+                    </div>
+                </a>
+                <% }); %>
+        </div>
     </div>
 </body>
 

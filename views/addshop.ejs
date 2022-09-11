@@ -26,49 +26,93 @@
             text-align: center;
             margin-top: 10px;
         }
+        
+        .block {
+            background-color: antiquewhite;
+            height: 100vh;
+        }
+        
+        .cover {
+            text-align: center;
+            background-color: lightgrey;
+            padding: 20px;
+            border: 1px solid black;
+        }
+        
+        .info {
+            display: grid;
+            grid-template-columns: auto auto auto;
+            padding: 20px;
+            border: 1px solid black;
+        }
+        
+        .gallary {
+            text-align: center;
+            padding: 20px;
+            border: 1px solid black;
+        }
+        
+        button {
+            width: 100px;
+            padding: 5px;
+            border: 1px solid black;
+            border-radius: 10px;
+        }
+        
+        input {
+            height: 20px;
+        }
+        
+        input:focus {
+            background-color: aqua;
+        }
     </style>
 </head>
 
 <body>
-    <nav>
-        <ul>
-            <li id="logo">
-                <a href="/">MyLocalStores</a>
-            </li>
-            <li>
-                <a href="/addshop">AddShop</a>
-            </li>
-        </ul>
-    </nav>
-    <div>
-        <form action="/upload" method="post" enctype="multipart/form-data">
-            <div class="input">
-                <h1>Add Shop</h1>
-            </div>
-            <div class="input">
-                <label for="shop-name">Shop-Name :</label>
-                <input type="text" name="shopname" required>
-            </div>
-            <div class="input">
-                <label for="about-shop">About Shop:</label>
-                <input type="text" name="about" required>
-            </div>
-            <div class="input">
-                <label for="cover-img">Cover image :</label>
-                <input type="file" name="file1" required>
-            </div>
-            <div class="input">
-                <label for="shop-img">Shop images :</label>
-                <input type="file" name="file2" required multiple>
-            </div>
-            <div class="input">
-                <label for="location">Location :</label>
-                <input type="text" name="location">
-            </div>
-            <div class="input">
-                <button type="submit">Submit</button>
-            </div>
-        </form>
+    <div class="block">
+        <nav>
+            <ul>
+                <li id="logo">
+                    <a href="/">MyLocalStores</a>
+                </li>
+                <li>
+                    <a href="/addshop">AddShop</a>
+                </li>
+            </ul>
+        </nav>
+        <div>
+            <form action="/upload" method="post" enctype="multipart/form-data">
+                <div class="input">
+                    <h1>Add Shop</h1>
+                </div>
+                <div class="cover">
+                    <label for="cover-img">Cover image :</label>
+                    <input type="file" name="file1" required>
+                </div>
+                <div class="info">
+                    <div class="input">
+                        <label for="shop-name">Shop-Name :</label>
+                        <input type="text" name="shopname" required>
+                    </div>
+                    <div class="input">
+                        <label for="about-shop">About Shop:</label>
+                        <input type="text" name="about" required>
+                    </div>
+                    <div class="input">
+                        <label for="location">Location :</label>
+                        <input type="text" name="location">
+                    </div>
+                </div>
+                <div class="gallary">
+                    <label for="shop-img">Shop images :</label>
+                    <input type="file" name="file2" required multiple>
+                </div>
+                <div class="input">
+                    <button type="submit">Submit</button>
+                </div>
+            </form>
+        </div>
     </div>
 </body>
 

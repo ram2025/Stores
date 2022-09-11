@@ -4,7 +4,7 @@ const path = require('path');
 var bodyParser = require('body-parser');
 
 const mongoose = require('mongoose');
-const { name } = require('ejs');
+
 const DB = 'mongodb+srv://sky:sky@cluster0.de1mtdi.mongodb.net/todo?retryWrites=true&w=majority';
 mongoose.connect(DB).then(() => {
     console.log("connection successful");
